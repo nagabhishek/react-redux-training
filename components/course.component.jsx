@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { IncrementLikes } from '../actions/actionCreators';
+
 function Course(props) {
   var dispatch = useDispatch();
   var ratings = [];
