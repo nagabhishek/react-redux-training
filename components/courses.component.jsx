@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { IncrementLikes } from '../actions/actionCreators';
 function Course(props) {
+  var dispatch = useDispatch();
   var ratings = [];
   for (let index = 0; index < props.coursedetails.rating; index++) {
     ratings.push(
@@ -26,16 +29,16 @@ function Course(props) {
 
           <button
             className="btn btn-primary mx-1"
-            onClick={() => props.IncrementLikes(props.coursedetails.id)}
+            // onClick={() => props.IncrementLikes()}
+            onClick={() => dispatch(IncrementLikes(props.coursedetails.id))}
           >
+            {/* {this.props.coursedetails.likes}{" "} */}
             {props.coursedetails.likes}{' '}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
-          <button
-            className="btn btn-warning mx-1"
-            onClick={() => props.DeleteCourse}
-          >
-            <i className="fa-solid fa-thumbs-down"></i>
+
+          <button className="btn btn-danger mx-1">
+            <i className="fa-solid fa-trash-can"></i>
           </button>
         </div>
       </div>

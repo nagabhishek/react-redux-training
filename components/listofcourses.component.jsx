@@ -1,9 +1,11 @@
 import React from 'react';
-import Course from './courses.component';
+import Course from './course.component';
+import { useSelector, useDispatch } from 'react-redux';
 
-function ListOfCourses(props) {
-  let coursesToBeCreated = props.allCourses.map((course) => (
-    <Course coursedetails={course} key={course.id} {...props} />
+function ListOfCourses() {
+  const { courses } = useSelector((store) => store);
+  let coursesToBeCreated = courses.map((course) => (
+    <Course coursedetails={course} key={course.id} />
   ));
   return (
     <>

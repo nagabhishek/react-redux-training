@@ -14,5 +14,5 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(AllActions, dispatch);
 }
 
-var MainApp = connect(mapStateToProps, mapDispatchToProps)(App); // MainApp - HOC
+const MainApp = connect(mapStateToProps, mapDispatchToProps)(App); // MainApp - HOC
 export default MainApp;

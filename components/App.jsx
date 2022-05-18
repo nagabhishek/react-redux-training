@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ListOfCourses from './listofcourses.component';
-import Posts from "./posts.component";
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Posts from './posts.component';
 
-export default function App(props) {
+function App(props) {
   // console.log(props);
   return (
     <>
@@ -43,8 +42,8 @@ export default function App(props) {
         </nav>
 
         <Routes>
-          <Route index element={<ListOfCourses {...props} />}></Route>
-          <Route path="/posts" element={<Posts {...props} />}></Route>
+          <Route path="/" element={<ListOfCourses />}></Route>
+          <Route path="/posts" element={<Posts />}></Route>
 
           <Route
             path="*"
@@ -57,3 +56,5 @@ export default function App(props) {
     </>
   );
 }
+
+export default App;
