@@ -23,6 +23,19 @@ function Course(props) {
 
           <h4 className="card-title">{props.coursedetails.title}</h4>
           <h5 className="card-text">₹. {props.coursedetails.price}</h5>
+
+          <button
+            className="btn btn-primary mx-1"
+            onClick={() => props.IncrementLikes()}
+          >
+            <i className="fa-solid fa-thumbs-up"></i>
+          </button>
+          <button
+            className="btn btn-warning mx-1"
+            onClick={() => props.DeleteCourse}
+          >
+            <i className="fa-solid fa-thumbs-down"></i>
+          </button>
         </div>
       </div>
     </div>

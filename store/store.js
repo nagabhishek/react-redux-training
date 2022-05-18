@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import { rootReducer } from '../reducers/root.reducer';
 
-var storeData = {
+const storeData = {
   courses: [
     {
       id: 1,
@@ -51,4 +51,4 @@ var storeData = {
   posts: [{ id: 1, title: 'Dummy Post !' }],
 };
 
-export var store = createStore(rootReducer, storeData);
+export const store = createStore(rootReducer, storeData);

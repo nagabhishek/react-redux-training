@@ -3,7 +3,7 @@ import Course from './courses.component';
 
 function ListOfCourses(props) {
   let coursesToBeCreated = props.allCourses.map((course) => (
-    <Course coursedetails={course} key={course.id} />
+    <Course coursedetails={course} key={course.id} {...props} />
   ));
   return (
     <>
