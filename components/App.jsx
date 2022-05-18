@@ -1,3 +1,4 @@
+import React from 'react';
 import ListOfCourses from './listofcourses.component';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Posts from './posts.component';
