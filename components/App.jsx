@@ -2,6 +2,7 @@ import React from 'react';
 import ListOfCourses from './listofcourses.component';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Posts from './posts.component';
+import NewCourse from './newcourse.component';
 
 function App(props) {
   // console.log(props);
@@ -33,6 +34,12 @@ function App(props) {
                 </li>
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/newcourse">
+                    New Course
+                  </Link>
+                </li>
+
+                <li className="nav-item">
                   <Link className="nav-link" to="/posts">
                     Posts
                   </Link>
@@ -44,6 +51,7 @@ function App(props) {
 
         <Routes>
           <Route path="/" element={<ListOfCourses />}></Route>
+          <Route path="/newcourse" element={<NewCourse />}></Route>
           <Route path="/posts" element={<Posts />}></Route>
 
           <Route

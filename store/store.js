@@ -7,6 +7,7 @@ const storeData = {
       id: 1,
       title: 'React',
       price: 5000,
+      dislikes: 100,
       likes: 400,
       rating: 5,
       imageUrl:
@@ -16,6 +17,7 @@ const storeData = {
       id: 2,
       title: 'Redux',
       price: 4000,
+      dislikes: 50,
       likes: 600,
       rating: 5,
       imageUrl: 'https://logicalidea.co/wp-content/uploads/2020/05/Redux.jpg',
@@ -24,6 +26,7 @@ const storeData = {
       id: 3,
       title: 'Node',
       price: 6000,
+      dislikes: 10,
       likes: 900,
       rating: 4,
       imageUrl:
@@ -33,6 +36,7 @@ const storeData = {
       id: 4,
       title: 'Angular',
       price: 5000,
+      dislikes: 100,
       likes: 200,
       rating: 3,
       imageUrl:
@@ -42,6 +46,7 @@ const storeData = {
       id: 5,
       title: 'Flutter',
       price: 7000,
+      dislikes: 20,
       likes: 700,
       rating: 4,
       imageUrl:

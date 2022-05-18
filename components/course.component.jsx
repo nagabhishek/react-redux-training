@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { IncrementLikes } from '../actions/actionCreators';
+import {
+  IncrementLikes,
+  DeleteCourse,
+  DecrementLikes,
+} from '../actions/actionCreators';
 
 function Course(props) {
   var dispatch = useDispatch();
@@ -38,7 +42,18 @@ function Course(props) {
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
 
-          <button className="btn btn-danger mx-1">
+          <button
+            className="btn btn-warning mx-1"
+            onClick={() => dispatch(DecrementLikes(props.coursedetails.id))}
+          >
+            {props.coursedetails.dislikes}{' '}
+            <i className="fa-solid fa-thumbs-down"></i>
+          </button>
+
+          <button
+            className="btn btn-danger mx-1"
+            onClick={() => dispatch(DeleteCourse(props.coursedetails.id))}
+          >
             <i className="fa-solid fa-trash-can"></i>
           </button>
         </div>
