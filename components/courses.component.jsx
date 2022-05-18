@@ -26,8 +26,9 @@ function Course(props) {
 
           <button
             className="btn btn-primary mx-1"
-            onClick={() => props.IncrementLikes()}
+            onClick={() => props.IncrementLikes(props.coursedetails.id)}
           >
+            {props.coursedetails.likes}{' '}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
           <button

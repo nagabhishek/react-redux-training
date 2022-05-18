@@ -3,8 +3,8 @@ const DELETE_COURSE = 'DELETE_COURSE';
 const ADD_NEW_COURSE = 'ADD_NEW_COURSE';
 const DELETE_POST = 'DELETE_POST';
 
-export function IncrementLikes() {
-  return { type: INCREMENT_LIKES };
+export function IncrementLikes(theCourseId) {
+  return { type: INCREMENT_LIKES, theCourseId };
 }
 
 export function DeleteCourse() {
