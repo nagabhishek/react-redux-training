@@ -2,9 +2,7 @@ export function courses(defStore = [], action) {
   let index;
   switch (action.type) {
     case 'INCREMENT_LIKES':
-      //console.log('Within courses reducer !', action.theCourseId);
-      index = defStore.findIndex((c) => c.id == action.theCourseId);
-
+      index = defStore.findIndex((course) => course.id == action.theCourseId);
       return [
         ...defStore.slice(0, index),
         {
@@ -15,8 +13,7 @@ export function courses(defStore = [], action) {
       ];
 
     case 'DECREMENT_LIKES':
-      index = defStore.findIndex((c) => c.id == action.theCourseId);
-
+      index = defStore.findIndex((course) => course.id == action.theCourseId);
       return [
         ...defStore.slice(0, index),
         {
@@ -27,11 +24,9 @@ export function courses(defStore = [], action) {
       ];
 
     case 'ADD_NEW_COURSE':
-      console.log('Within new courses reducer !', action.newCourse);
       return [...defStore.push(action.newCourse)];
 
     case 'DELETE_COURSE':
-      console.log('Within delete courses reducer !', action.courseId);
       return [...defStore.filter((course) => course.id !== action.courseId)];
 
     default:

@@ -54,6 +54,7 @@ const storeData = {
     },
   ],
   posts: [{ id: 1, title: 'Dummy Post !' }],
+  cartItems: [],
 };
 
 export const store = createStore(rootReducer, storeData);

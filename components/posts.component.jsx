@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-// using react-redux hooks
-export default function Posts(props) {
+
+export default function Posts() {
   const { posts } = useSelector((store) => store);
   return (
     <div>

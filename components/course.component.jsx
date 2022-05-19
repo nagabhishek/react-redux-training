@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   IncrementLikes,
   DeleteCourse,
   DecrementLikes,
+  AddToCart,
 } from '../actions/actionCreators';
 
 function Course(props) {
-  var dispatch = useDispatch();
-  var ratings = [];
+  const dispatch = useDispatch();
+  let ratings = [];
+  let [isDisabled, setDisabled] = useState(false);
+
   for (let index = 0; index < props.coursedetails.rating; index++) {
     ratings.push(
       <span style={{ color: 'orange' }} key={index}>
@@ -34,10 +37,8 @@ function Course(props) {
 
           <button
             className="btn btn-primary mx-1"
-            // onClick={() => props.IncrementLikes()}
             onClick={() => dispatch(IncrementLikes(props.coursedetails.id))}
           >
-            {/* {this.props.coursedetails.likes}{" "} */}
             {props.coursedetails.likes}{' '}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
@@ -55,6 +56,17 @@ function Course(props) {
             onClick={() => dispatch(DeleteCourse(props.coursedetails.id))}
           >
             <i className="fa-solid fa-trash-can"></i>
+          </button>
+
+          <button
+            className="btn btn-success mx-1"
+            onClick={() => {
+              setDisabled(true);
+              dispatch(AddToCart(props.coursedetails));
+            }}
+            disabled={isDisabled}
+          >
+            <i className="fa fa-cart-plus"></i>
           </button>
         </div>
       </div>

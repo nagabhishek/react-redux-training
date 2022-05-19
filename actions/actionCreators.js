@@ -3,6 +3,7 @@ const DECREMENT_LIKES = 'DECREMENT_LIKES'; // best practice !
 const DELETE_COURSE = 'DELETE_COURSE';
 const ADD_NEW_COURSE = 'ADD_NEW_COURSE';
 const DELETE_POST = 'DELETE_POST';
+const ADD_TO_CART = 'ADD_TO_CART';
 
 export function IncrementLikes(theCourseId) {
   return { type: INCREMENT_LIKES, theCourseId };
@@ -22,4 +23,8 @@ export function AddCourse(course) {
 
 export function DeletePost() {
   return { type: DELETE_POST };
+}
+
+export function AddToCart(course) {
+  return { type: ADD_TO_CART, course };
 }
