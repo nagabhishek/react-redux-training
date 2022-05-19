@@ -31,14 +31,14 @@ export function AddToCart(course) {
   return { type: ADD_TO_CART, course };
 }
 
+export function FetchPosts(posts) {
+  return { type: 'FETCH_POSTS', posts };
+}
+
 export function FetchPostsAsync() {
   return (dispatch) => {
     axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
       dispatch(FetchPosts(response.data));
     });
   };
-}
-
-export function FetchPosts(posts) {
-  return { type: 'FETCH_POSTS', posts };
 }

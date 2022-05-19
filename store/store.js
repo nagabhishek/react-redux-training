@@ -64,3 +64,9 @@ export const store = createStore(
   storeData,
   applyMiddleware(thunk)
 );
+
+// export const store = createStore(
+//   rootReducer,
+//   storeData,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
