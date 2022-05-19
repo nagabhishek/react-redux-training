@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ListOfCourses from './listofcourses.component';
-import Posts from './posts.component';
+// import Posts from './posts.component';
 import NewCourse from './newcourse.component';
 import PostDetails from './postdetails.component';
+
+const Posts = lazy(() => import('./posts.component'));
+const loader = () => <strong>Loading..</strong>;
 
 function App(props) {
   // console.log(props);
@@ -53,7 +56,14 @@ function App(props) {
         <Routes>
           <Route path="/" element={<ListOfCourses />}></Route>
           <Route path="/newcourse" element={<NewCourse />}></Route>
-          <Route path="/posts" element={<Posts />}></Route>
+          <Route
+            path="/posts"
+            element={
+              <Suspense fallback={loader()}>
+                <Posts />
+              </Suspense>
+            }
+          ></Route>
           <Route path="/postdetails/:id" element={<PostDetails />}></Route>
           <Route
             path="*"
