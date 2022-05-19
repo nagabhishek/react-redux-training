@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ListOfCourses from './listofcourses.component';
 import Posts from './posts.component';
 import NewCourse from './newcourse.component';
+import PostDetails from './postdetails.component';
 
 function App(props) {
   // console.log(props);
@@ -53,7 +54,7 @@ function App(props) {
           <Route path="/" element={<ListOfCourses />}></Route>
           <Route path="/newcourse" element={<NewCourse />}></Route>
           <Route path="/posts" element={<Posts />}></Route>
-
+          <Route path="/postdetails/:id" element={<PostDetails />}></Route>
           <Route
             path="*"
             element={

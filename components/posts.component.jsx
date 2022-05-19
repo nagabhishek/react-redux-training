@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FetchPostsAsync } from '../actions/actionCreators';
+import { Link } from 'react-router-dom';
 
 export default function Posts() {
   const { posts } = useSelector((store) => store);
@@ -17,7 +18,7 @@ export default function Posts() {
       <ul className="list-group">
         {posts.map((post) => (
           <li className="list-group-item" key={post.id}>
-            {post.title}
+            <Link to={`/postdetails/${post.id}`}> {post.title}</Link>
           </li>
         ))}
       </ul>
