@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import { rootReducer } from '../reducers/root.reducer';
 
 const storeData = {
@@ -53,8 +55,12 @@ const storeData = {
         'https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg',
     },
   ],
-  posts: [{ id: 1, title: 'Dummy Post !' }],
+  posts: [],
   cartItems: [],
 };
 
-export const store = createStore(rootReducer, storeData);
+export const store = createStore(
+  rootReducer,
+  storeData,
+  applyMiddleware(thunk)
+);

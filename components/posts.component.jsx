@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { FetchPostsAsync } from '../actions/actionCreators';
 
 export default function Posts() {
   const { posts } = useSelector((store) => store);
+  var dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(FetchPostsAsync());
+  }, []);
+
   return (
     <div>
       <h2>All Posts</h2>

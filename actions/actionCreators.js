@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const INCREMENT_LIKES = 'INCREMENT_LIKES';
 const DECREMENT_LIKES = 'DECREMENT_LIKES'; // best practice !
 const DELETE_COURSE = 'DELETE_COURSE';
@@ -27,4 +29,16 @@ export function DeletePost() {
 
 export function AddToCart(course) {
   return { type: ADD_TO_CART, course };
+}
+
+export function FetchPostsAsync() {
+  return (dispatch) => {
+    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
+      dispatch(FetchPosts(response.data));
+    });
+  };
+}
+
+export function FetchPosts(posts) {
+  return { type: 'FETCH_POSTS', posts };
 }
