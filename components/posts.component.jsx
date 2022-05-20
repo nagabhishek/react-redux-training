@@ -12,22 +12,22 @@ export default function Posts() {
 
   useEffect(() => {
     //dispatch(FetchPostsAsync()); using thunk
-    //dispatch(FetchPostsRequested()); // using saga
+    dispatch(FetchPostsRequested()); // using saga
   }, []);
 
   return (
     <div>
       <h2>All Posts</h2>
-      <button
+      {/* <button
         className="btn btn-success"
         onClick={() => dispatch(FetchPostsRequested())}
       >
         Get All Posts !
-      </button>
+      </button> */}
       <ul className="list-group">
         {posts.map((post) => (
           <li className="list-group-item" key={post.id}>
-            <Link to={`/postdetails/${post.id}`}> {post.title}</Link>
+            ({post.id})<Link to={`/postdetails/${post.id}`}> {post.title}</Link>
           </li>
         ))}
       </ul>

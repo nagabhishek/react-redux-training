@@ -19,12 +19,19 @@ export default function PostDetails() {
       dispatch(FetchPostsDetails(id));
     }
   });
+
   return (
     <div className="alert alert-secondary">
-      <h2>Post Details for {id}</h2>
-      <h3>UserId : {thePost.userId}</h3>
-      <h3>Title : {thePost.title}</h3>
-      <h3>Body : {thePost.body}</h3>
+      {thePost ? (
+        <>
+          <h2>Post Details for {thePost.id}</h2>
+          <h3>UserId : {thePost.userId}</h3>
+          <h3>Title : {thePost.title}</h3>
+          <h3>Body : {thePost.body}</h3>
+        </>
+      ) : (
+        <strong>Loading..</strong>
+      )}
     </div>
   );
 }
