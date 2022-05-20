@@ -7,7 +7,9 @@ const getPostDetails = (id) =>
 
 function* FetchPostsUsingAPI() {
   try {
-    const response = yield call(getPosts); // makes the async call !
+    let duration = 1000;
+    const response = yield retry(3, duration * 10, getPosts); //using retry
+    //const response = yield call(getPosts); // makes the async call !
     yield put({ type: 'FETCH_POSTS', posts: response.data });
   } catch (error) {
     yield put({ type: 'FETCH_POSTS_FAILED', message: error.message });
@@ -23,18 +25,7 @@ function* FetchPostsDetailsUsingAPI(action) {
   }
 }
 
-function* FetchPostsUsingRetry() {
-  try {
-    let duration = 1000;
-    const response = yield retry(3, duration * 10, getPosts);
-    yield put({ type: 'FETCH_POSTS', posts: response.data });
-  } catch (error) {
-    yield put({ type: 'FETCH_POSTS_FAILED', message: error.message });
-    console.log(error);
-  }
-}
-
 export function* mySaga() {
-  yield takeLatest('FETCH_POSTS_REQUESTED', FetchPostsUsingRetry);
+  yield takeLatest('FETCH_POSTS_REQUESTED', FetchPostsUsingAPI);
   yield takeLatest('FETCH_POSTS_DETAILS', FetchPostsDetailsUsingAPI);
 }

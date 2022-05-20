@@ -68,17 +68,12 @@ export const store = createStore(
   rootReducer,
   storeData,
   applyMiddleware(sagaMiddleware)
+  //   applyMiddleware(thunk)
 );
 
 sagaMiddleware.run(mySaga);
 
-//Using thunk
-// export const store = createStore(
-//   rootReducer,
-//   storeData,
-//   applyMiddleware(thunk)
-// );
-
+// Enable redux chrome tool
 // export const store = createStore(
 //   rootReducer,
 //   storeData,
