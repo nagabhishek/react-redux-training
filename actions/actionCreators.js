@@ -35,10 +35,16 @@ export function FetchPosts(posts) {
   return { type: 'FETCH_POSTS', posts };
 }
 
-export function FetchPostsAsync() {
-  return (dispatch) => {
-    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-      dispatch(FetchPosts(response.data));
-    });
-  };
+//using saga
+export function FetchPostsRequested() {
+  return { type: 'FETCH_POSTS_REQUESTED' };
 }
+
+//using thunk
+// export function FetchPostsAsync() {
+//   return (dispatch) => {
+//     axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
+//       dispatch(FetchPosts(response.data));
+//     });
+//   };
+// }

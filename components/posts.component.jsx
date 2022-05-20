@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchPostsAsync } from '../actions/actionCreators';
+import {
+  FetchPostsAsync,
+  FetchPostsRequested,
+} from '../actions/actionCreators';
 import { Link } from 'react-router-dom';
 
 export default function Posts() {
@@ -8,7 +11,8 @@ export default function Posts() {
   var dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(FetchPostsAsync());
+    //dispatch(FetchPostsAsync()); using thunk
+    dispatch(FetchPostsRequested()); // using saga
   }, []);
 
   return (

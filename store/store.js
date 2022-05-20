@@ -1,7 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 
 import { rootReducer } from '../reducers/root.reducer';
+import { mySaga } from '../saga/saga';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const storeData = {
   courses: [
@@ -59,11 +63,21 @@ const storeData = {
   cartItems: [],
 };
 
+//Using redux-saga
 export const store = createStore(
   rootReducer,
   storeData,
-  applyMiddleware(thunk)
+  applyMiddleware(sagaMiddleware)
 );
+
+sagaMiddleware.run(mySaga);
+
+//Using thunk
+// export const store = createStore(
+//   rootReducer,
+//   storeData,
+//   applyMiddleware(thunk)
+// );
 
 // export const store = createStore(
 //   rootReducer,
