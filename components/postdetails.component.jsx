@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { FetchPostsDetails } from '../actions/actionCreators';
 
 export default function PostDetails() {
   let { id } = useParams();
   const { posts } = useSelector((state) => state);
-  var dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   let [thePost, setPost] = useState({});
 
@@ -22,7 +24,7 @@ export default function PostDetails() {
 
   return (
     <div className="alert alert-secondary">
-      {thePost ? (
+      {thePost.id ? (
         <>
           <h2>Post Details for {thePost.id}</h2>
           <h3>UserId : {thePost.userId}</h3>
@@ -32,6 +34,9 @@ export default function PostDetails() {
       ) : (
         <strong>Loading..</strong>
       )}
+      <button className="btn btn-primary" onClick={() => navigate('/posts')}>
+        Back
+      </button>
     </div>
   );
 }
