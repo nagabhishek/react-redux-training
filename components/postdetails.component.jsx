@@ -12,8 +12,9 @@ export default function PostDetails() {
     setPost(post);
   });
   return (
-    <div>
+    <div className="alert alert-secondary">
       <h2>Post Details for {id}</h2>
+      <h3>UserId : {thePost.userId}</h3>
       <h3>Title : {thePost.title}</h3>
       <h3>Body : {thePost.body}</h3>
     </div>
