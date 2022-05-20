@@ -12,13 +12,18 @@ export default function Posts() {
 
   useEffect(() => {
     //dispatch(FetchPostsAsync()); using thunk
-    dispatch(FetchPostsRequested()); // using saga
+    //dispatch(FetchPostsRequested()); // using saga
   }, []);
 
   return (
     <div>
       <h2>All Posts</h2>
-
+      <button
+        className="btn btn-success"
+        onClick={() => dispatch(FetchPostsRequested())}
+      >
+        Get All Posts !
+      </button>
       <ul className="list-group">
         {posts.map((post) => (
           <li className="list-group-item" key={post.id}>
