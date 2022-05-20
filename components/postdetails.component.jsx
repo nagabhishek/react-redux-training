@@ -32,7 +32,9 @@ export default function PostDetails() {
           <h3>Body : {thePost.body}</h3>
         </>
       ) : (
-        <strong>Loading..</strong>
+        <div>
+          <strong>Loading..</strong>
+        </div>
       )}
       <button className="btn btn-primary" onClick={() => navigate('/posts')}>
         Back
