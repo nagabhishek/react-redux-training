@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { FetchPostsDetails } from '../actions/actionCreators';
 
 export default function PostDetails() {
   let { id } = useParams();
   const { posts } = useSelector((state) => state);
+  var dispatch = useDispatch();
+
   let [thePost, setPost] = useState({});
 
   useEffect(() => {
-    const post = posts.find((p) => p.id == id);
-    setPost(post);
+    if (posts.length) {
+      const post = posts.find((p) => p.id == id);
+      setPost(post);
+    } else {
+      dispatch(FetchPostsDetails(id));
+    }
   });
   return (
     <div className="alert alert-secondary">

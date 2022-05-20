@@ -40,6 +40,10 @@ export function FetchPostsRequested() {
   return { type: 'FETCH_POSTS_REQUESTED' };
 }
 
+export function FetchPostsDetails(id) {
+  return { type: 'FETCH_POSTS_DETAILS', id };
+}
+
 //using thunk
 // export function FetchPostsAsync() {
 //   return (dispatch) => {
