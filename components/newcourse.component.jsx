@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { AddCourse } from '../actions/actionCreators';
+import { useDispatch } from 'react-redux';
 
 export default function NewCourse() {
+  const dispatch = useDispatch();
   let [newcourse, setNewCourse] = useState({});
 
   return (
@@ -10,7 +13,7 @@ export default function NewCourse() {
         className="col-md-4 alert alert-secondary"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(newcourse);
+          dispatch(AddCourse(newcourse));
         }}
       >
         <h2>New Course</h2>

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function Posts() {
   const { posts } = useSelector((store) => store);
-  var dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     //dispatch(FetchPostsAsync()); using thunk

@@ -24,7 +24,9 @@ export function courses(defStore = [], action) {
       ];
 
     case 'ADD_NEW_COURSE':
-      return [...defStore.push(action.newCourse)];
+      const newList = [...defStore];
+      newList.push(action.newCourse);
+      return [...newList];
 
     case 'DELETE_COURSE':
       return [...defStore.filter((course) => course.id !== action.courseId)];
