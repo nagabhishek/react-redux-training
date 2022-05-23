@@ -45,10 +45,10 @@ export function FetchPostsDetails(id) {
 }
 
 //using thunk
-// export function FetchPostsAsync() {
-//   return (dispatch) => {
-//     axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-//       dispatch(FetchPosts(response.data));
-//     });
-//   };
-// }
+export function FetchPostsAsync() {
+  return (dispatch) => {
+    axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
+      dispatch(FetchPosts(response.data));
+    });
+  };
+}
