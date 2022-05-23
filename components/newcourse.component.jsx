@@ -9,7 +9,6 @@ export default function NewCourse() {
   return (
     <div className="row justify-content-md-center m-4">
       <form
-        noValidate={true}
         className="col-md-4 alert alert-secondary"
         onSubmit={(e) => {
           e.preventDefault();

@@ -25,7 +25,7 @@ export function courses(defStore = [], action) {
 
     case 'ADD_NEW_COURSE':
       const newList = [...defStore];
-      newList.push(action.newCourse);
+      newList.push(action.course);
       return [...newList];
 
     case 'DELETE_COURSE':
